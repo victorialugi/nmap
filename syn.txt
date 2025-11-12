@@ -1,0 +1,12 @@
+# Nmap 7.94SVN scan initiated Wed Nov 12 10:56:24 2025 as: nmap -sS -F -oN /tmp/captures/syn.txt 158.160.84.144
+Nmap scan report for 158.160.84.144
+Host is up (0.00064s latency).
+Not shown: 95 closed tcp ports (reset)
+PORT    STATE SERVICE
+21/tcp  open  ftp
+22/tcp  open  ssh
+80/tcp  open  http
+139/tcp open  netbios-ssn
+445/tcp open  microsoft-ds
+
+# Nmap done at Wed Nov 12 10:56:24 2025 -- 1 IP address (1 host up) scanned in 0.08 seconds

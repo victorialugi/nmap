@@ -1,0 +1,11 @@
+# Nmap 7.94SVN scan initiated Wed Nov 12 11:08:38 2025 as: nmap -sU -F -oN /tmp/captures/udp.txt 158.160.84.144
+Nmap scan report for 158.160.84.144
+Host is up (0.00038s latency).
+Not shown: 96 closed udp ports (port-unreach)
+PORT    STATE         SERVICE
+68/udp  open|filtered dhcpc
+69/udp  open|filtered tftp
+137/udp open          netbios-ns
+138/udp open|filtered netbios-dgm
+
+# Nmap done at Wed Nov 12 11:10:29 2025 -- 1 IP address (1 host up) scanned in 110.98 seconds
