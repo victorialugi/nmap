@@ -64,27 +64,31 @@ https://www.exploit-db.com/exploits/9594`
 
 ### Задание 2
 
-`cat > ~/scan_report/README.md << 'EOF'
-# Сканирование Metasploitable
+`**Цель:** 158.160.84.144  
+**Атакующий:** 10.129.0.4  
 
-**Цель:** 158.160.84.144  
-**Атакующий:** 158.160.64.22  
+---
 
-## 1. Отличия режимов
-- **SYN**: SYN → SYN-ACK (open), RST (closed)  
-- **FIN/Xmas**: drop (open|filtered), RST (closed)  
-- **UDP**: UDP-ответ (редко), ICMP Port Unreachable (closed)
+## 1. Чем отличаются эти режимы сканирования с точки зрения сетевого трафика?
 
-## 2. Ответы сервера
-**SYN**: 21,22,80,139,445 open  
-**FIN/Xmas**: open|filtered  
-**UDP**: ICMP для closed
+| Режим | Пакет | Open | Closed |
+|-------|-------|------|--------|
+| SYN   | SYN   | SYN-ACK | RST |
+| FIN   | FIN   | —       | RST |
+| Xmas  | F+P+U | —       | RST |
+| UDP   | UDP   | UDP-ответ | ICMP |
 
-## Файлы:
-- 4 .txt (nmap)
-- 4 .pcap (трафик)
-- 4 текстовых отчёта (tshark)
+---
 
-EOF
+## 2. Как отвечает сервер?
 
-`
+**SYN**: 21,22,80,139,445 — `open` (SYN → SYN-ACK)  
+**FIN/Xmas**: все — `open|filtered` (FIN/Xmas → drop)  
+**UDP**: 137 — `open`, остальные — `ICMP Port Unreachable`
+
+---
+
+## Файлы
+- `.pcap` — трафик  
+- `.txt` — вывод nmap  
+- `*_report.txt` — анализ tshark` 
